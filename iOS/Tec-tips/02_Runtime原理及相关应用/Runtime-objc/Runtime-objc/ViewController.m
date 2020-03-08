@@ -56,9 +56,28 @@
 //    [t swapMethod];
 //    [t method1];
     
-    //7
-    TestClass *t = [[TestClass alloc] init];
-    [t methodNoImp];
+//    //7
+//    TestClass *t = [[TestClass alloc] init];
+//    [t methodNoImp];
+    
+//    //8
+//    for (int i = 0; i < 3; i ++) {
+//        TestClass *c = [TestClass sharedManager];
+//        NSLog(@"i = %d, c= %@", i, c);
+//    }
+    
+    
+    //9
+    for (int i = 0; i < 3; i ++) {
+        CFUUIDRef puuid = CFUUIDCreate(nil);
+        CFStringRef uuidString = CFUUIDCreateString(nil, puuid);
+        NSString * result = (NSString *)CFBridgingRelease(CFStringCreateCopy(NULL, uuidString));
+        CFRelease(puuid);
+        CFRelease(uuidString);
+        NSLog(@"%@", result);
+    }
+    
+    
 }
 
 @end

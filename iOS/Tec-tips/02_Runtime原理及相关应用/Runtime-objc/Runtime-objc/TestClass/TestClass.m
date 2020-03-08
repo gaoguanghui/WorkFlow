@@ -125,4 +125,17 @@
     }
 }
 
+
++ (id)sharedManager {
+    static TestClass *c;
+    NSLog(@"1c== %@", c);
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        c = [[TestClass alloc] init];
+        NSLog(@"once in >> %@", c);
+    });
+    NSLog(@"2c== %@", c);
+    return c;
+}
+
 @end
