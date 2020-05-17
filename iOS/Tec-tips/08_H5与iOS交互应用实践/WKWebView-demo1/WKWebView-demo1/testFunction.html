@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OC与JS交互</title>
+</head>
+<body>
+    <div>OC与JS交互</div>
+    <script>
+        function testA() {
+            window.webkit.messageHandlers.jsCallOc.postMessage("TestA");
+        }
+
+        function testB() {
+            alert("TESTB");
+        }
+
+        function testC(value) {
+            return 'value = ' + value;
+        }
+    </script>
+    
+     <button onclick="testA()">clickME!</button>
+</body>
+</html>
